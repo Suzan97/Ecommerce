@@ -1,0 +1,99 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MultiShop - Online Shop Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/login.css'%}" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Checkout Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+               {% block content %}
+               {% load crispy_forms_tags %}
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Login</span></h5>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{login_form|crispy}}
+                    <!-- {% for field in form %}
+                        <p>{{ field.label }}: <br> {{ field }}</p>
+                    {% endfor %} -->
+                    <button type="submit">Login</button>
+                </form>
+                
+                <p>Don't have an account? <a href="{% url 'signup' %}">Signup here</a></p>
+                <!-- <div class="bg-light p-30 mb-5">
+                    <div class="row">
+                        <div class="col-md-7 form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" type="text" placeholder="example@email.com">
+                        </div>
+                        <div class="col-md-7 form-group">
+                            <label>Password</label>
+                            <input class="form-control" type="password" id="myInput" placeholder="password">
+                            <input type="checkbox" onclick="myFunction()">show password
+                        </div> 
+                        <div class="col-md-7 form-group">
+                            <a href ="{% url 'shop' %}"><button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Login</button></a>
+                        </div>         
+                    </div>
+                </div> -->
+                {% endblock %}
+            </div>
+  
+        </div>
+    </div>
+    <!-- Checkout End -->
+
+
+    <!-- Footer Start -->
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <!-- <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a> -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js'%}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+    
+
+</body>
+
+</html>
